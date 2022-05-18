@@ -55,17 +55,17 @@ export const selectLatestRatesStatus = state => state.converter.latestRatesStatu
 
 // Thunk
 export const fetchSymbols = createAsyncThunk('converter/fetchSymbols', async () => {
-  const response = await client.get('http://0.0.0.0:5000/symbols')
+  const response = await client.get(`${process.env.REACT_APP_API_HOST}/symbols`)
   return response.data.result
 })
 
 export const convertCurrency = createAsyncThunk('converter/convertCurrency', async ({amount, fromCurrency, toCurrency}) => {
-  const response = await client.get(`http://0.0.0.0:5000/convert_currency?amount=${amount}&from=${fromCurrency}&to=${toCurrency}`)
+  const response = await client.get(`${process.env.REACT_APP_API_HOST}/convert_currency?amount=${amount}&from=${fromCurrency}&to=${toCurrency}`)
   return response.data.result
 })
 
 export const fetchLatestRates = createAsyncThunk('converter/fetchLatestRates', async ({baseCurrency}) => {
-  const response = await client.get(`http://0.0.0.0:5000/latest_rates?base=${baseCurrency}`)
+  const response = await client.get(`${process.env.REACT_APP_API_HOST}/latest_rates?base=${baseCurrency}`)
   return response.data.result
 })
 
