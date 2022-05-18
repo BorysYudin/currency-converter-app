@@ -10,7 +10,7 @@ export const Body = (props) => {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Paper sx={{ bgcolor: "#fff", height: "100vh", margin: "12px 0" }}>
+        <Paper sx={{ bgcolor: "#fff", margin: "12px 0"}}>
           <Grid container>{props.children}</Grid>
         </Paper>
       </Container>
